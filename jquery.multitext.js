@@ -15,6 +15,7 @@
     this.$element = $(element)
 
     this.paramName = this.$element.attr('name')
+    this.placeholder = this.$element.attr('placeholder')
     this.values = this.parseValues(this.$element, options)
 
     this.render()
@@ -49,7 +50,7 @@
       '<div>' +
         '<div class="multitext-block"></div>' +
         '<div class="multitext-tool"><a href="javascript:void(0)" class="multitext-add">Add Another</a></div>' +
-        '</div>'
+      '</div>'
     )
     $el.insertAfter(this.$element)
     this.$element.remove()
@@ -66,9 +67,9 @@
 
     $el = $(
       '<div class="multitext-input">' +
-        '<input type="text" name="'+this.paramName+'" value="'+value+'">' +
+        '<input type="text" name="'+this.paramName+'" value="'+value+'" placeholder="'+this.placeholder+'">' +
         '<a href="javascript:void(0)" class="multitext-remove"><i class="icon-trash"></i></a>' +
-        '</div>'
+      '</div>'
     )
     this.$element.find('.multitext-block').append($el)
   }
